@@ -71,9 +71,8 @@ func _notify(i *xsrs.Item) error {
 	end := start.Add(time.Second * time.Duration(duration))
 
 	n := &pushbullet.Note{
-		Body:  fmt.Sprintf("%s (%s ~ %s) seems to be conflict", i.Title, start.Format(layout2), end.Format(layout2)),
-		Type:  "note",
-		Title: "confilict recording schedule",
+		Body: fmt.Sprintf("[nasne] %s (%s ~ %s) seems to be conflict", i.Title, start.Format(layout2), end.Format(layout2)),
+		Type: "note",
 	}
 	return pushbullet.New(*apikey).Push(n)
 }
