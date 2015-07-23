@@ -74,5 +74,5 @@ func _notify(i *xsrs.Item) error {
 		Body: fmt.Sprintf("[nasne] %s (%s ~ %s) seems to be conflict", i.Title, start.Format(layout2), end.Format(layout2)),
 		Type: "note",
 	}
-	return pushbullet.New(*apikey).Push(n)
+	return pushbullet.New(*apikey).Push("/pushes", n)
 }
